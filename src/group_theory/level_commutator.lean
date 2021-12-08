@@ -72,7 +72,7 @@ will become `⊢ 3 + 1 = 4`, which seems reasonable.
 
 -/
 
-/-!
+/-
 # Commutator identities
 
 In these exercises we will write the proofs of the identities in
