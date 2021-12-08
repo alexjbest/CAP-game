@@ -4,18 +4,18 @@ extra_files = "extras"
 intro = "src/intro.lean"
 
 [[worlds]]
-name = "Basics"
+name = "Intro"
 id = 1
 levels = [
-	"src/basics/level1.lean",
-	"src/basics/level2.lean",
+	"src/group_theory/level_commutator.lean",
+	# "src/basics/level2.lean",
 ]
 
 [[worlds]]
-name = "Group theory"
+name = "Tactics"
 id = 2
 parents = [1]
 levels = [
 	"src/group_theory/level1.lean",
-	"src/group_theory/level2.lean",
+	# "src/group_theory/level2.lean",
 ]

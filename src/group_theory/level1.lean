@@ -1,4 +1,4 @@
-import basic_defs_world.definition -- hide
+import group_theory.definition -- hide
 
 /- Axiom : The total set (called `univ`) is open.
 univ_mem : is_open set.univ
@@ -38,7 +38,7 @@ example, `a ∈ ∅` means `false`.
 /- Lemma
 Prove that the empty set is open.
 -/
-lemma is_open_empty {X : Type} [topological_space X] : is_open (∅ : set X) :=
+lemma is_open_empty {X : Type} [group X] : is_open (∅ : set X) :=
 begin
   rw ←sUnion_empty,
   apply union,
