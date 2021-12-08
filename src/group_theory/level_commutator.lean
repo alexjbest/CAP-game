@@ -1,4 +1,5 @@
-import group_theory.general_commutator
+import algebra.group.basic
+import data.bracket
 
 /-!
 # Commutator identities
