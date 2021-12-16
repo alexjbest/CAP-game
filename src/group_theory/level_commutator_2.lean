@@ -1,14 +1,10 @@
-import .level_commutator
+import group_theory.level_commutator
 
--- ex2
+
+
 /- Lemma
 -/
-lemma commutator_mul {G : Type*} [group G] {x y z : G} : [x, z * y] = [x, y] * [x, z]^y :=
+lemma conjugate_self {G : Type*} [group G] {x : G} : x ^ x = x :=
 begin
-  rw [commutator_def, commutator_def, commutator_def, conjugate_def, mul_inv_rev],
-  assoc_rw [mul_inv_self],
-  rw mul_one,
-  assoc_rw [mul_inv_self],
-  rw mul_one,
-  simp [mul_assoc],
+  rw [conjugate_def, inv_mul_self, one_mul],
 end

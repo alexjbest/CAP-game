@@ -100,18 +100,3 @@ lemma commutator_self {G : Type*} [group G] {x : G} : [x, x] = 1 :=
 begin
   rw [commutator_def, inv_mul_cancel_right, inv_mul_self],
 end
-
-/- Lemma
--/
-lemma conjugate_self {G : Type*} [group G] {x : G} : x ^ x = x :=
-begin
-  rw [conjugate_def, inv_mul_self, one_mul],
-end
-
-/- Lemma
--/
-lemma commutator_inv {G : Type*} [group G] {x y : G} : [y, x] = [x, y]⁻¹ :=
-begin
-  rw [commutator_def, commutator_def, mul_inv_rev, mul_inv_rev, mul_inv_rev, inv_inv, inv_inv,
-    mul_assoc, mul_assoc],
-end
