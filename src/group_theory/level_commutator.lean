@@ -117,26 +117,6 @@ begin
 end
 
 
--- open tactic
--- meta def tactic.ac_refl' : tactic unit :=
--- do
---  (lhs, rhs) ← target >>= match_eq,
---    trace lhs,
---    s ← return $ cc_state.mk,
---    trace lhs,
---    s ← s.internalize lhs,
---    s ← s.internalize rhs,
---    trace lhs,
---    trace rhs,
---    b ← s.is_eqv lhs rhs,
---    trace $ s.pp_core ff,
---    trace b,
---    if b then do {
---      s.eqv_proof lhs rhs >>= exact
---    } else do {
---      fail "ac_refl failed"
---    }
-
 -- ex2
 /- Lemma
 -/
@@ -148,7 +128,6 @@ begin
   assoc_rw [mul_inv_self],
   rw mul_one,
   simp [mul_assoc],
-  -- ac_refl, -- fails
 end
 
 -- ex3
