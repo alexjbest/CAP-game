@@ -7,9 +7,11 @@ intro = "src/intro.lean"
 name = "Intro"
 id = 1
 levels = [
-	"src/group_theory/level_commutator.lean",
+	"src/group_theory/level_commutator_1.lean",
 	"src/group_theory/level_commutator_2.lean",
 	"src/group_theory/level_commutator_3.lean",
+	"src/group_theory/level_commutator_4.lean",
+	"src/group_theory/level_commutator_5.lean",
 	# "src/basics/level2.lean",
 ]
 
