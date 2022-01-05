@@ -76,14 +76,14 @@ will become `⊢ 3 + 1 = 4`, which seems reasonable.
 # Commutator identities
 
 In these exercises we will write the proofs of the identities in
-https://en.wikipedia.org/wiki/Commutator#Identities_(group_theory)
+<https://en.wikipedia.org/wiki/Commutator#Identities_(group_theory)>
 in the Lean interactive theorem prover.
 
 -/
 notation `[`x`, `y`]` := has_bracket.bracket x y -- hide
-def commutator {G : Type*} [group G] : G → G → G := λ x y, x⁻¹ * y⁻¹ * x * y
+definition commutator {G : Type*} [group G] (x y : G) : G := x⁻¹ * y⁻¹ * x * y
 instance group.has_bracket {G : Type*} [group G] : has_bracket G G := ⟨commutator⟩ -- hide
-def conjugate {G : Type*} [group G] : G → G → G := λ x y, y⁻¹ * x * y
+definition conjugate {G : Type*} [group G] (x y : G) : G := y⁻¹ * x * y
 instance group.has_pow {G : Type*} [group G] : has_pow G G := ⟨conjugate⟩ -- hide
 /- Axiom : The definition of commutator
 commutator_def : [x, y] = x⁻¹ * y⁻¹ * x * y
