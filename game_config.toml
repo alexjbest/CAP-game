@@ -7,19 +7,27 @@ intro = "src/intro.lean"
 name = "Intro"
 id = 1
 levels = [
-	"src/group_theory/level_commutator_1.lean",
-	"src/group_theory/level_commutator_2.lean",
-	"src/group_theory/level_commutator_3.lean",
-	"src/group_theory/level_commutator_4.lean",
-	"src/group_theory/level_commutator_5.lean",
+	"src/intro/level1.lean",
+]
+
+[[worlds]]
+name = "Simplifier"
+id = 2
+parents = [1]
+levels = [
+	"src/simplifier/level_commutator_1.lean",
+	"src/simplifier/level_commutator_2.lean",
+	"src/simplifier/level_commutator_3.lean",
+	"src/simplifier/level_commutator_4.lean",
+	"src/simplifier/level_commutator_5.lean",
 	# "src/basics/level2.lean",
 ]
 
 [[worlds]]
-name = "Tactics"
-id = 2
-parents = [1]
+name = "Advanced"
+id = 3
+parents = [2]
 levels = [
-	"src/group_theory/level1.lean",
+	"src/advanced/level1.lean",
 	# "src/group_theory/level2.lean",
 ]
