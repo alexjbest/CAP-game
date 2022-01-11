@@ -8,6 +8,9 @@ name = "Intro"
 id = 1
 levels = [
 	"src/intro/level1.lean",
+	"src/intro/level2.lean",
+	"src/intro/level3.lean",
+	"src/intro/level4.lean",
 ]
 
 [[worlds]]

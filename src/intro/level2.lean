@@ -4,36 +4,40 @@ We can state lemmas assuming hypotheses with similar notation as we made a lemma
 dependent on natural numbers before.
 
 The `rewrite` tactic can then be used to rewrite a hypothesis, after all we can substitute
-things we know to be equal in facts we know as well as things we are trying to prove.
+things we know to be equal in facts we know as well as substituting into what we are trying to prove.
 
 ### Example:
 You can use `rewrite` to change a hypothesis as well.
 For example, if your goal state looks like this:
 ```
-A B C D : set X
-h1 : A = B ∩ C
-h2 : B ∪ A = D
-⊢ D = B
+n m : ℕ
+h1 : n + 1 = 7
+h2 : m = n + 1
+⊢ m + 2 = 9
 ```
-then `rw h1 at h2` will turn `h2` into `h2 : B ∪ B ∩ C = D` (remember operator precedence).
+then `rewrite h2 at h1` will turn `h1` into `h1 : m = 7`.
+
+Below are two useful results you can use to finish this level.
 -/
 
-/- Axiom : The commutativity of addition
-add_comm : ∀ x y, x + y = y + x
+/- Axiom :
+lemma add_zero : ∀ x, x + 0 = x
 -/
-
-/-
-The next tactic we will learn is *rw* (from rewrite). It rewrites equalities. That is,
-if we have a proof `h : x = 3` and we want to prove `⊢ x + 1 = 4`, then after `rw h` the goal
-will become `⊢ 3 + 1 = 4`, which seems reasonable.
-
+lemma add_zero : ∀ x, x + 0 = x
+:= nat.add_zero --hide
+/- Axiom :
+lemma one_mul : ∀ x, 1 * x = x
 -/
+lemma one_mul : ∀ x, 1 * x = x
+:= nat.one_mul --hide
 
 /- Hint : Click here for a hint, in case you get stuck.
 Delete `sorry` and type `rw h,` (don't forget the comma!). Lean tries `refl` afterwards,
 so you will see that this suffices.
 -/
 
+/- Lemma : no-side-bar
+-/
 lemma level2 (x y : ℕ) (hx : x + 0 = 1 * y) : x + y = y + y :=
 begin
   rw add_zero at hx,

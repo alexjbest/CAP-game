@@ -1,83 +1,23 @@
 import algebra.group.basic
 import data.bracket
-/- Tactic : rw
 
-## Summary
-
-If `h` is a proof of `X = Y`, then `rw h,` will change
-all `X`s in the goal to `Y`s.
-
-Variants: `rw ← h` changes
-`Y` to `X` and
-`rw h at h2` changes `X` to `Y` in hypothesis `h2` instead
-of the goal.
-
-## Details
-
-The `rw` tactic is a way to do "substituting in". There
-are two distinct situations where use this tactics.
-
-1) If `h : A = B` is a hypothesis (i.e., a proof of `A = B`)
-in your local context (the box in the top right)
-and if your goal contains one or more `A`s, then `rw h`
-will change them all to `B`'s.
-
-2) The `rw` tactic will also work with proofs of theorems
-which are equalities (look for them in the drop down
-menu on the left, within Theorem Statements).
-
-Important note: if `h` is not a proof of the form `A = B`
-or `A ↔ B` (for example if `h` is a function, an implication,
-or perhaps even a proposition itself rather than its proof),
-then `rw` is not the tactic you want to use. For example,
-`rw (P = Q)` is never correct: `P = Q` is the true-false
-statement itself, not the proof.
-If `h : P = Q` is its proof, then `rw h` will work.
-
-Pro tip 1: If `h : A = B` and you want to change
-`B`s to `A`s instead, try `rw ←h` (get the arrow with `\l`,
-note that this is a small letter L, not a number 1).
-
-### Example:
-If it looks like this in the top right hand box:
-```
-A B C : set X
-h : A = B ∪ C
-⊢ A ∪ B = B ∪ C
-```
-
-then
-
-`rw h,`
-
-will change the goal into `⊢ B ∪ C ∪ B = B ∪ C`.
-
-### Example:
-You can use `rw` to change a hypothesis as well.
-For example, if your local context looks like this:
-```
-A B C D : set X
-h1 : A = B ∩ C
-h2 : B ∪ A = D
-⊢ D = B
-```
-then `rw h1 at h2` will turn `h2` into `h2 : B ∪ B ∩ C = D` (remember operator precedence).
--/
+/- # The simplifier
+Up till now we have been using `rewrite` to manually instruct Lean which steps to take one at a time.
+This is a very useful tool, but after a while you will notice that there are some rewrites that
+will always make things easier when substituted.
+For example we almost always want to use the fact that multiplying by 1 or adding 0 doesn't
+change things.
 
 
-/-
-The next tactic we will learn is *rw* (from rewrite). It rewrites equalities. That is,
-if we have a proof `h : x = 3` and we want to prove `⊢ x + 1 = 4`, then after `rw h` the goal
-will become `⊢ 3 + 1 = 4`, which seems reasonable.
-
--/
-
-/-
 # Commutator identities
 
 In these exercises we will write the proofs of the identities in
 <https://en.wikipedia.org/wiki/Commutator#Identities_(group_theory)>
-in the Lean interactive theorem prover.
+in Lean.
+
+First we will set up the basic definitions, in World 1, we didn't make any new mathematical
+definitions, we just made use of the natural numbers, propositions, and some lemmas Lean
+already knew about.
 
 -/
 notation `[`x`, `y`]` := has_bracket.bracket x y -- hide
@@ -94,9 +34,28 @@ conjugate_def : y^x = x⁻¹ * y * x := rfl
 -/
 lemma conjugate_def {G : Type*} [group G] {x y : G} : y^x = x⁻¹ * y * x := rfl
 
-/- Lemma
+/- Axiom : cancelling inverses on the right
+inv_mul_cancel_right : ∀ {G : Type} [_inst_1 : group G] (a b : G), a * b⁻¹ * b = a
 -/
-lemma commutator_self {G : Type*} [group G] {x : G} : [x, x] = 1 :=
+
+/- Axiom : cancelling an element with its own inverse
+inv_mul_self : ∀ {G : Type} [_inst_1 : group G] (a : G), a⁻¹ * a = 1
+-/
+
+/-
+Remember to check out the panel on the left for some useful lemmas
+-/
+
+/- Lemma :
+-/
+@[simp]
+lemma commutator_self {G : Type} [group G] {x : G} : [x, x] = 1 :=
 begin
-  rw [commutator_def, inv_mul_cancel_right, inv_mul_self],
+  rw commutator_def,
+  rw inv_mul_cancel_right,
+  rw inv_mul_self,
+
+
+
+
 end

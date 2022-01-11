@@ -19,14 +19,14 @@ sUnion_empty : ⋃₀ ∅ = ∅
 /-
 # Level 1 : The empty set is open.
 -/
-noncomputable theory -- hide
-open set -- hide
+-- noncomputable theory -- hide
+-- open set -- hide
 
 /-
 In many textbooks, one of the axioms of a topological space is that the empty set is open. This actually follows from the other axioms!
 -/
 
-namespace topological_space -- hide
+-- namespace topological_space -- hide
 
 
 /- Hint : Click here for a hint, in case you get stuck.
@@ -38,11 +38,11 @@ example, `a ∈ ∅` means `false`.
 /- Lemma
 Prove that the empty set is open.
 -/
-lemma is_open_empty {X : Type} [group X] : is_open (∅ : set X) :=
-begin
-  rw ←sUnion_empty,
-  apply union,
-  tauto,
+-- lemma is_open_empty {X : Type} [group X] : is_open (∅ : set X) :=
+-- begin
+--   rw ←sUnion_empty,
+--   apply union,
+--   tauto,
 
 
 
@@ -50,6 +50,6 @@ begin
 
 
 
-end
+-- end
 
-end topological_space -- hide
+-- end topological_space -- hide
