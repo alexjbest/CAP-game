@@ -1,7 +1,6 @@
-import .level_commutator_4
+import group_theory.level_commutator_4
 
--- ex3
-/- Lemma
+/- Lemma :
 -/
 lemma hall_witt {G : Type*} [group G] {x y z : G} :
   [[x, y⁻¹], z] ^ y * [[y, z⁻¹], x] ^ z * [[z, x⁻¹], y] ^ x = 1 :=

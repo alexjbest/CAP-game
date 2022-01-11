@@ -1,4 +1,4 @@
-import .definition -- hide
+-- import group_theory.definition -- hide
 
 /- Axiom : The total set (called `univ`) is open.
 univ_mem : is_open set.univ
@@ -20,23 +20,24 @@ sUnion_empty : ⋃₀ ∅ = ∅
 # Level 1 : The empty set is open.
 -/
 -- noncomputable theory -- hide
+-- open set -- hide
 
--- /-
--- In many textbooks, one of the axioms of a topological space is that the empty set is open. This actually follows from the other axioms!
--- -/
+/-
+In many textbooks, one of the axioms of a topological space is that the empty set is open. This actually follows from the other axioms!
+-/
 
 -- namespace topological_space -- hide
 
 
--- /- Hint : Click here for a hint, in case you get stuck.
--- In Lean, sets are notation for logical statements. That is, the set
--- `a ∈ { x : X | P x }` means *the same as* `P a`. As a somewhat degenerate
--- example, `a ∈ ∅` means `false`.
--- -/
+/- Hint : Click here for a hint, in case you get stuck.
+In Lean, sets are notation for logical statements. That is, the set
+`a ∈ { x : X | P x }` means *the same as* `P a`. As a somewhat degenerate
+example, `a ∈ ∅` means `false`.
+-/
 
--- /- Lemma
--- Prove that the empty set is open.
--- -/
+/- Lemma
+Prove that the empty set is open.
+-/
 -- lemma is_open_empty {X : Type} [group X] : is_open (∅ : set X) :=
 -- begin
 --   rw ←sUnion_empty,

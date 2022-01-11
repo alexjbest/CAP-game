@@ -1,4 +1,3 @@
-import tactic
 
 --from lftcm
 -- class group (G : Type) extends has_mul G, has_one G, has_inv G :=

@@ -1,4 +1,4 @@
-import .level1 --hide
+-- import group_theory.level1 --hide
 
 
 /-
@@ -23,5 +23,3 @@ The union of two open sets is open.
 
 
 -- end
-
--- end topological_space --hide
