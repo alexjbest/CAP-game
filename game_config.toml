@@ -20,6 +20,8 @@ parents = [1]
 levels = [
 	"src/inter/level1.lean",
 	"src/inter/level2.lean",
+	"src/inter/level3.lean",
+	"src/inter/level4.lean",
 	"src/simplifier/level_commutator_1.lean",
 	"src/simplifier/level_commutator_2.lean",
 	"src/simplifier/level_commutator_3.lean",
