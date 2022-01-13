@@ -1,4 +1,5 @@
-import .level3
+import inter.level3
+import tactic
 
 /- Tactic : use
 When the goal is to prove an existential, `∃` we can
