@@ -1,4 +1,4 @@
-import .level1 --hide
+import intro.level1 --hide
 /-
 We can state lemmas assuming hypotheses with similar notation as we made a lemma
 dependent on natural numbers before.
