@@ -1,6 +1,5 @@
-import group_theory.level_commutator_3
+import simplifier.level_commutator_3
 
--- ex2
 /- Lemma :
 -/
 lemma commutator_mul {G : Type*} [group G] {x y z : G} : [x, z * y] = [x, y] * [x, z]^y :=

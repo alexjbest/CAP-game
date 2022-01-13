@@ -1,8 +1,13 @@
-import group_theory.level_commutator_1
+import simplifier.level_commutator_1
 
+/-
+How far will simp get you here?
+-/
 namespace bloop--hide
+@[simp]
 lemma inv_mul_self {G : Type} [group G] (a : G) : a⁻¹ * a = 1
 := mul_left_inv a --hide
+@[simp]
 lemma one_mul {G : Type} [group G] (a : G) : 1 * a = a
 := one_mul _ --hide
 
