@@ -30,11 +30,11 @@ levels = [
 	# "src/basics/level2.lean",
 ]
 
-# [[worlds]]
-# name = "Advanced"
-# id = 3
-# parents = [2]
-# levels = [
-# 	"src/advanced/level1.lean",
-#   "src/advanced/level2.lean",
-# ]
+[[worlds]]
+name = "Advanced"
+id = 3
+parents = [2]
+levels = [
+  "src/advanced/level1.lean",
+  "src/advanced/level2.lean",
+]
