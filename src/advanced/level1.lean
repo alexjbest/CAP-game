@@ -16,7 +16,8 @@ Some things you should know:
 g ∘ f ⁻¹' s = f ⁻¹' (g ⁻¹' s)
 -/
 /-
-You will need to the tactics intros, rewrite, and apply for this problem!
+You will need to use the tactics intros, rewrite, and apply for this problem!
+And some new lemmas that are in the sidebar for you.
 -/
 /- Lemma :
 -/

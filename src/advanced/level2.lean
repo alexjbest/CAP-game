@@ -7,13 +7,18 @@ along a continuous map is also compact.
 Some things you should know:
 - A subset of a space `X` is an element of the type `set X` in Lean
 - The notation for image of a set `U` along a map `f` is `f '' U`
-- The simplifier (`simp`, `simp at h`, etc.) is very useful!
+- The simplifier `simp,`,
+  is very useful, especially simplifying your hypotheses  `simp at ht` !
+  You can use `simp at *,` to simplify as much as possible everywhere
+- there is a new helpful lemma in the sidebar
 -/
 /- Hint : click here for the first few lines of the proof
->  rw is_compact_iff_finite_subcover,
->  rw is_compact_iff_finite_subcover at h,
->  intros ι V hV hVu,
->  obtain ⟨t, ht⟩ := h (λ i, f ⁻¹' (V i)) _ _,
+```
+rw is_compact_iff_finite_subcover, -- rewrite the definition of compactness
+rw is_compact_iff_finite_subcover at h,  -- rewrite the definition of compactness
+intros ι V hV hVu, -- we are proving a forall, so introduce everything
+obtain ⟨t, ht⟩ := h (λ i, f ⁻¹' (V i)) _ _, -- pull back the open sets from Y to X
+```
 -/
 /- Axiom : continuous.is_open_preimage : ∀ {α β : Type} [_inst_1 : topological_space α]
   [_inst_2 : topological_space β] {f : α → β},
