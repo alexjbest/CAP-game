@@ -1,6 +1,7 @@
 import topology.continuous_function.polynomial -- hide
 
-/- In this problem you will show that a specific polynomial is continuous, you can do this using
+/- # Using apply
+In this problem you will show that a specific polynomial is continuous, you can do this using
 the basic facts in the left sidebar: that adding continuous functions is continuous,
 likewise multiplying continuous functions remains continuous, constant functions are continuous,
 and the identity function is continuous. The way these lemmas are stated is very general, they work
