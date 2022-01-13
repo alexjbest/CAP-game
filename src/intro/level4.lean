@@ -63,7 +63,7 @@ not_and_self (a : Prop) : (¬a ∧ a) ↔ false
 -/
 
 /- Axiom :
-or_self (a : Prop) : (a ∨ false) ↔ a
+or_false (a : Prop) : (a ∨ false) ↔ a
 -/
 
 /- Axiom :
