@@ -1,0 +1,32 @@
+-- import data.real.basic
+-- import data.real.sqrt
+
+-- open real
+-- lemma limit :
+-- ∀ (ε : ℝ) (hε : 0 < ε), ∃ (δ : ℝ) (hδ : 0 < δ), ∀ x : ℝ, 0 < |x - 5| ∧ |x - 5| < δ → |(3 * x ^ 2 - 1) - 74| < ε :=
+-- begin
+--   intros,
+--   let ε' := min ε 72,
+--   use min (5 - sqrt (25 - ε' / 3)) (-5 + sqrt (25 + ε' / 3)),
+--   simp only [ε'],
+--   split,
+--   sorry,
+--   -- simp only [ε'],
+--   -- simp,
+--   -- split,
+--   -- rw sqrt_lt_of
+--   intros x hx,
+--   rw sub_sub,
+--   norm_num,
+--   rw abs_lt at *,
+--   rcases hx with ⟨hx₁, hx₃, hx₄⟩,
+--   simp [-neg_lt_sub_iff_lt_add, neg_lt, abs_pos, add_sub_cancel'_right, lt_min_iff, ne.def, lt_neg_add_iff_add_lt] at *,
+--   cases hx₃,
+--   cases hx₄,
+--   simp at *,
+--   split,
+--   sorry,
+--   nlinarith,
+--   sorry,
+--   sorry,
+-- end
