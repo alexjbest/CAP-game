@@ -57,9 +57,9 @@ jobs:
 
       - name : Get server files
         run: |
-          curl -s https://api.github.com/repos/leanprover-community/lean/releases/latest | grep "browser.zip" | grep -v name | cut -d : -f 2,3 | tr -d \"  | wget -qi -
+          VER=`lean -v |sed -nE 's/.*version ([0-9]+\.[0-9]+\.[0-9]+).*/\1/pi'`
+          wget -q https://github.com/leanprover-community/lean/releases/download/v$VER/lean-$VER--browser.zip
           unzip *.zip
-          VER=`ls *zip | cut -c 6-11`
           mkdir -p "Lean-game-maker/src/interactive_interface/lean_server/leanprover-community/lean:$VER/"
           cp build/shell/* "Lean-game-maker/src/interactive_interface/lean_server/leanprover-community/lean:$VER/"
           
