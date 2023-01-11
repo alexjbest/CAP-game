@@ -34,6 +34,9 @@ lemma one_mul : ∀ x, 1 * x = x
 /- Hint : Click here for a hint, in case you get stuck.
 Delete `sorry` and type `rw h,` (don't forget the comma!). Lean tries `refl` afterwards,
 so you will see that this suffices.
+Delete `sorry` and type `rewrite add_zero x at hx,` (don't forget the comma!), as a first step of the proof.
+In fact, in this situation the `rewrite` tactic can infer that the argument of `add_zero` should be `x`,
+so one could leave out the argument `x`, i.e. simply write `rewrite add_zero at hx,` (don't forget the comma!).
 -/
 
 /- Lemma : no-side-bar
