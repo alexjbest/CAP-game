@@ -22,7 +22,10 @@ end bloop --hide
 So if we wanted to show `⊢ x = 2 ∨ y = 1` we could `rewrite or_comm,` to change the goal to
 `⊢ y = 1 ∨ x = 2`, which might then match one of our hypotheses better.
 
-Check out the left sidebar for some new lemmas that you can use to prove the following statement:
+Check out the left sidebar for some new lemmas that you can use to prove the statement below.
+One subtlety, note the curly (instead of round) brackets used in `{P : Prop}` in the `not_not` lemma statement.
+This signals that `P` is a so-called implicit argument to `not_not`, meaning that syntax like `rewrite not_not P,` is not correct,
+and instead `rewrite not_not,` should be used (where the argument `P` is then infered automatically).
 -/
 
 /- Axiom : iff_self
@@ -34,7 +37,7 @@ Check out the left sidebar for some new lemmas that you can use to prove the fol
 -/
 
 /- Axiom : not_not
-∀ (P : Prop), ¬ ¬ P ↔ P
+∀ {P : Prop}, ¬ ¬ P ↔ P
 -/
 
 /- Lemma :
