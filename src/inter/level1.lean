@@ -43,7 +43,7 @@ Try something like `intro h1,` and go from there.
 variables {X : Type} -- hide
 
 /- Lemma : no-side-bar
-If A, B and C are sets and A = B, then A ∪ C = B ∪ C.
+If A and B are sets and A = B, then x ∈ A → x ∈ B.
 -/
 lemma example_on_intro (A B : set X) (x : X) (h : A = B) : x ∈ A → x ∈ B :=
 begin
