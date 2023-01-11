@@ -14,28 +14,25 @@ change things.
 ## Summary
 
 The `simp` tactic is a high-level tactic which tries
-to prove equalities using facts in its database (such
-as `add_assoc` and `add_comm`).
+to prove equalities using facts in its database.
 
 ## Details
 
-The `simp` tactic does basic automation. By level 6 of
-Addition World you
-have proved enough about addition for `simp` to be able
-to solve all equalities whose proofs involve a tedious number
-of rewrites of `add_assoc` and `add_comm`, and by
-level 9 of Multiplication World the same is true of `mul_assoc` and `mul_comm`.
+The `simp` tactic does basic automation.
+For example, some proofs involve a tedious number of rewrites of `add_assoc` and `add_comm`, 
+the same is true of `mul_assoc` and `mul_comm` in the case of multiplication. 
+We can use `simp` to do this automatically. 
+To tell `simp` to use some lemma `h` when simplifying, write `simp[h]`. More generally, 
+for `simp` to include additional lemmas `h1`, `h2`, ..., `hn` when simplifying, write 
+`simp[h1, h2, ..., hn]`. 
 
 ### Example:
 If our goal is this:
 ```
-⊢ a + b + c + d + e = c + (b + e + a) + d
+⊢ a + b + c + d + e = a + (b + (c + d) + e)
 ```
 
-and you have completed addition world, then you've proved
-enough about addition to solve this level with `simp`.
-Note however that you can't prove `add_assoc` with `simp`,
-because `add_assoc` is an ingredient to get `simp` working.
+we can solve this with `simp` using `simp[add_assoc]`. 
 
 ### Example:
 If our goal is this:
