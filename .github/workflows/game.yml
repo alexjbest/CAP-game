@@ -17,7 +17,7 @@ on:
         default: false
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -61,7 +61,7 @@ jobs:
 
       - name: Install Game maker
         run: |
-          git clone https://github.com/mpedramfar/Lean-game-maker.git
+          git clone https://github.com/alexjbest/Lean-game-maker.git
           cd Lean-game-maker/src/interactive_interface
           npm install .
           ./node_modules/.bin/webpack --mode=production
